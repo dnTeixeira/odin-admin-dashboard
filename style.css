@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto.ttf);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,11 +13,25 @@
     --sidebar-background: rgb(0, 170, 255);
     --header-background: white;
     --content-background: rgb(222, 222, 222);
+
+    --sidebar-text-color: white;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none
 }
 
 .container {
     display: grid;
-    grid-template-columns: min(20%, 300px) 1fr;
+    grid-template-columns: clamp(12vw, 15vw, 20vw) 1fr;
     grid-template-rows: min(20%, 300px) 1fr;
 }
 
@@ -24,14 +43,57 @@
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
     height: 100vh;
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     background: var(--sidebar-background);
+    padding: 8px 16px;
 }
 
 .main-content {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     background: var(--content-background);
+}
+
+.dashboard-title {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    color: var(--sidebar-text-color);
+    gap: 0.5vw;
+}
+
+.dashboard-title > svg {
+    max-width: 100%;
+    height: 2.5vw;
+    fill: white;
+}
+
+.feature-options, .support-options {
+    display: grid;
+    gap: 3vh;
+}
+
+.feature-options a, 
+.support-options a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--sidebar-text-color);
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.sidebar-item svg {
+    max-width: 100%;
+    height: 1.5vw;
+    fill: white;
 }
